@@ -18,7 +18,7 @@ def update_pommes():
         username = pwd.getpwuid(os.getuid()).pw_name
         env_path = os.path.join("/home", username, ".virtualenvs/pimoroni/bin/python")
         print(env_path)
-        file_path = os.path.join("/home", username, "inkyCode/pommes.py")
+        file_path = "python/pommes.py"
         print(file_path)
         result = subprocess.run(
             [env_path, file_path],
