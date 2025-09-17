@@ -13,8 +13,9 @@ def index():
 @app.route("/update-pommes", methods=["POST"])
 def update_pommes():
     try:
-        python_path = os.path.expanduser("~/.virtualenvs/pimoroni/bin/python")
-        script_path = os.path.expanduser("~/inkyCode/pommes.py")
+        home_dir = os.getenv("HOME")
+        python_path = home_dir + "/.virtualenvs/pimoroni/bin/python"
+        script_path = home_dir + "/inkyCode/pommes.py"
         result = subprocess.run(
             [python_path, script_path],
             text=True,
