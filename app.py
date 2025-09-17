@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request
+import os
 import subprocess
 
 app = Flask(__name__)
@@ -12,8 +13,10 @@ def index():
 @app.route("/update-pommes", methods=["POST"])
 def update_pommes():
     try:
+        python_path = os.path.expanduser("~/.virtualenvs/pimoroni/bin/python")
+        script_path = os.path.expanduser("~/inkyCode/pommes.py")
         result = subprocess.run(
-            ["~/.virtualenvs/pimoroni/bin/python", "~/inkyCode/pommes.py"],
+            [python_path, script_path],
             text=True,
             check=True,
         )
