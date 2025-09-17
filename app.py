@@ -16,7 +16,9 @@ def update_pommes():
     try:
         home_dir = os.path.expanduser("~")
         env_path = os.path.join(home_dir, "/.virtualenvs/pimoroni/bin/python")
+        print(env_path)
         file_path = os.path.join(home_dir, "/inkyCode/pommes.py")
+        print(file_path)
         result = subprocess.run(
             [env_path, file_path],
             text=True,
