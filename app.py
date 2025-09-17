@@ -18,6 +18,11 @@ def update_pommes():
             text=True,
             check=True,
         )
+        subprocess.run(
+            ["pwd"],
+            text=True,
+            check=True,
+        )
         result = subprocess.run(
             [".virtualenvs/pimoroni/bin/python", "inkyCode/pommes.py"],
             text=True,
