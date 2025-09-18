@@ -32,7 +32,26 @@ inky_display = auto()
 img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
 draw = ImageDraw.Draw(img)
 
-draw.rectangle((0, 0, inky_display.WIDTH, inky_display.HEIGHT), fill=inky_display.WHITE)
+y_top = int(inky_display.height * (5.0 / 10.0))
+y_bottom = y_top + int(inky_display.height * (4.0 / 10.0))
+
+for y in range(0, y_top):
+    for x in range(0, inky_display.width):
+        img.putpixel(
+            (x, y),
+            inky_display.BLACK if inky_display.colour == "black" else inky_display.RED,
+        )
+
+for y in range(y_top, y_bottom):
+    for x in range(0, inky_display.width):
+        img.putpixel((x, y), inky_display.WHITE)
+
+for y in range(y_bottom, inky_display.height):
+    for x in range(0, inky_display.width):
+        img.putpixel(
+            (x, y),
+            inky_display.BLACK if inky_display.colour == "black" else inky_display.RED,
+        )
 
 question = "Gibt es heute Pommes?"
 w, h = getsize(font_small, question)
