@@ -57,12 +57,12 @@ question = "Gibt es heute Pommes?"
 w, h = getsize(font_small, question)
 x = (inky_display.WIDTH - w) // 2
 y_question = 30
-draw.text((x, y_question), question, inky_display.BLACK, font_small)
+draw.text((x, y_question), question, inky_display.White, font_small)
 
 answer = inhalt
 w, h = getsize(font_big, answer)
-x = (inky_display.WIDTH - w) // 2
-y_answer = y_question + 2 * h
+x = (inky_display.WIDTH - w) / 2
+y_answer = int(y_top + ((y_bottom - y_top - name_h) / 2))
 draw.text((x, y_answer), answer, inky_display.BLACK, font_big)
 
 inky_display.set_image(img)
