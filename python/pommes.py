@@ -2,6 +2,7 @@ import sys
 from inky.auto import auto
 from PIL import Image, ImageFont, ImageDraw
 from font_source_sans_pro import SourceSansPro
+from font_intuitive import Intuitive
 import requests
 
 print("Lade Daten für Pommes...")
@@ -20,6 +21,7 @@ print("Schreibe Text auf Display...")
 
 font_small = ImageFont.truetype(SourceSansPro, 36)
 font_big = ImageFont.truetype(SourceSansPro, 72)
+intuitive_font = ImageFont.truetype(Intuitive, int(72))
 
 
 def getsize(font, text):
@@ -60,7 +62,7 @@ y_question = 30
 draw.text((x, y_question), question, inky_display.WHITE, font_small)
 
 answer = inhalt
-w, h = getsize(font_big, answer)
+w, h = getsize(intuitive_font, answer)
 x = (inky_display.WIDTH - w) / 2
 y_answer = int(y_top + ((y_bottom - y_top - h) / 2))
 draw.text((x, y_answer), answer, inky_display.BLACK, font_big)
