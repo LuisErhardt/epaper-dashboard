@@ -19,7 +19,7 @@ else:
 
 print("Schreibe Text auf Display...")
 
-font_small = ImageFont.truetype(SourceSansPro, 40)
+font_small = ImageFont.truetype(SourceSansPro, 44)
 font_big = ImageFont.truetype(SourceSansPro, 72)
 intuitive_font = ImageFont.truetype(Intuitive, int(72))
 
