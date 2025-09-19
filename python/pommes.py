@@ -55,16 +55,16 @@ for y in range(y_bottom, inky_display.height):
             inky_display.BLACK if inky_display.colour == "black" else inky_display.RED,
         )
 
-question_top = "Gibt es heute?"
+question_top = "Gibt es heute"
 w, h = getsize(font_small, question_top)
 x = int((inky_display.width - w) / 2)
-y_question = 15
+y_question = 20
 draw.text((x, y_question), question_top, inky_display.WHITE, font_small)
 
 question_bottom = "Pommes?"
 w, h = getsize(font_small, question_bottom)
 x = int((inky_display.width - w) / 2)
-y_question = y_question + 30
+y_question = y_question + 50
 draw.text((x, y_question), question_bottom, inky_display.WHITE, font_small)
 
 answer = inhalt
