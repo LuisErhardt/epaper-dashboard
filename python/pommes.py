@@ -65,7 +65,7 @@ answer = inhalt
 w, h = getsize(intuitive_font, answer)
 x = (inky_display.WIDTH - w) / 2
 y_answer = int(y_top + ((y_bottom - y_top - h) / 2))
-draw.text((x, y_answer), answer, inky_display.BLACK, font_big)
+draw.text((x, y_answer), answer, inky_display.BLACK, intuitive_font)
 
 inky_display.set_image(img)
 inky_display.show()
