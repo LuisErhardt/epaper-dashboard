@@ -64,7 +64,7 @@ draw.text((x, y_question), question_top, inky_display.WHITE, font_small)
 question_bottom = "Pommes?"
 w, h = getsize(font_small, question_bottom)
 x = int((inky_display.width - w) / 2)
-y_question = y_question + 15
+y_question = y_question + 30
 draw.text((x, y_question), question_bottom, inky_display.WHITE, font_small)
 
 answer = inhalt
