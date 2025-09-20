@@ -17,12 +17,27 @@ def update_pommes():
     try:
         username = pwd.getpwuid(os.getuid()).pw_name
         env_path = os.path.join("/home", username, ".virtualenvs/pimoroni/bin/python")
-        print(env_path)
         file_path = "python/pommes.py"
-        print(file_path)
         result = subprocess.run(
             [env_path, file_path],
             text=True,
+            check=True,
+        )
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/set-image/<int:image_id>", methods=["POST"])
+def set_image(image_id):
+    try:
+        username = pwd.getpwuid(os.getuid()).pw_name
+        env_path = os.path.join("/home", username, ".virtualenvs/pimoroni/bin/python")
+        image_path = f"static/imgs/pattern-{image_id}.jpg"
+        result = subprocess.run(
+            [env_path, "python/image.py", "--colour", "red", "--image", image_path],
+            text=True,
+            capture_output=True,
             check=True,
         )
         return jsonify({"success": True})

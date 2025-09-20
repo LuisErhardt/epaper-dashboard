@@ -7,25 +7,17 @@
     <title>E-Paper Controller</title>
   </head>
   <body class="min-h-screen bg-gray-100">
-    <div class="bg-white shadow-xl rounded-2xl p-10 max-w-xl mx-auto mt-10">
+    <div class="bg-white shadow-xl rounded-2xl p-10 max-w-2xl mx-auto mt-10">
       <h1 class="text-3xl font-bold text-gray-800 mb-6">E-Paper Controller</h1>
-      <div id="functions" class="flex justify-between">
-        <div class="p-3 border rounded-md border-gray-400 shadow-md mx-1">
-          <p class="mb-2">Diesen Text darstellen:</p>
-          <textarea
-            id="textarea"
-            rows="1"
-            placeholder="Eingeben..."
-            class="w-full px-4 py-3 mb-6 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-          ></textarea>
-          <button
-            id="formBtn"
-            class="px-6 py-3 border border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-100 active:bg-blue-200 cursor-pointer"
-          >
-            Absenden
-          </button>
+      <div class="mb-3">
+        <div id="successMsg" class="hidden mt-6 p-4 rounded-lg bg-green-600 text-white font-medium shadow-md"></div>
+        <div id="errorMsg" class="hidden mt-6 p-4 rounded-lg bg-red-600 text-white font-medium shadow-md"></div>
+        <div id="loadingOverlay" class="hidden mt-6 p-4 rounded-lg bg-gray-600 text-white font-medium shadow-md">
+          <p class="">Display wird aktualisiert. Bitte warten…</p>
         </div>
-        <div class="p-3 border rounded-md border-gray-400 shadow-md mx-1">
+      </div>
+      <div id="functions" class="flex flex-wrap items-start gap-6">
+        <div class="p-3 border rounded-md border-gray-400 shadow-md text-center">
           <p class="mb-3">Gibt es heute Pommes?</p>
           <button
             id="updateBtn"
@@ -34,11 +26,19 @@
             Aktualisieren
           </button>
         </div>
-      </div>
-      <div id="successMsg" class="hidden mt-6 p-4 rounded-lg bg-green-600 text-white font-medium shadow-md"></div>
-      <div id="errorMsg" class="hidden mt-6 p-4 rounded-lg bg-red-600 text-white font-medium shadow-md"></div>
-      <div id="loadingOverlay" class="hidden mt-6 p-4 rounded-lg bg-gray-600 text-white font-medium shadow-md">
-        <p class="">Display wird aktualisiert. Bitte warten…</p>
+        <div id="imgs" class="p-3 border rounded-md border-gray-400 shadow-md w-fit">
+          <p class="mb-3">Wähle ein Bild durch klicken aus:</p>
+
+          <button id="patternBtn1" data-image="1" class="block w-fit cursor-pointer mb-3">
+            <img src="{{ url_for('static', filename='imgs/pattern-1.jpg') }}" width="300" />
+          </button>
+          <button id="patternBtn2" data-image="2" class="block w-fit cursor-pointer mb-3">
+            <img src="{{ url_for('static', filename='imgs/pattern-2.jpg') }}" width="300" />
+          </button>
+          <button id="patternBtn3" data-image="3" class="block w-fit cursor-pointer">
+            <img src="{{ url_for('static', filename='imgs/pattern-3.jpg') }}" width="300" />
+          </button>
+        </div>
       </div>
     </div>
 
